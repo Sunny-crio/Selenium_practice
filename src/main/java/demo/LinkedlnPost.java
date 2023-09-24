@@ -45,8 +45,10 @@ public class LinkedlnPost {
         System.out.println("Start Test case: LinkedLnpostcenario");
       driver.get("https://www.linkedin.com/");
       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-      //WebElement email = driver.findElement(By.id("session_key").sendKeys("9494732902"));
-     // WebElement password = driver.findElement(By.id("session_password").sendKeys("Password"));
+      WebElement email = driver.findElement(By.id("session_key"));
+      email.sendKeys("sunnyhith.avadootha4@gmail.com");
+     WebElement password = driver.findElement(By.id("session_password"));
+     password.sendKeys("Sunny@9494");
 
       WebElement signinbutton = driver.findElement(By.xpath("//button[contains(text(),'Sign in')]"));
 
@@ -55,27 +57,40 @@ public class LinkedlnPost {
       WebDriverWait wait = new WebDriverWait(driver,30);
 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@title='Home']")));
 
-WebElement countnoofviews=driver.findElement(By.xpath("//div/span/strong)[1]"));
+WebElement countnoofviews=driver.findElement(By.xpath("(//div/span/strong)[1]"));
+System.out.println("no of views"  + " " + countnoofviews.getText());
 
 //(//div/span/strong)[2]
-WebElement startpost= driver.findElement(By.id("ember790"));
+WebElement startpost= driver.findElement(By.xpath("(//button/span/span)[1]"));
 startpost.click();
 
 WebElement headerbutton= driver.findElement(By.xpath("//h2/button[@type='button']"));
 headerbutton.click();
 
-WebElement addmediabutton= driver.findElement(By.xpath("span/button[@aria-label='Add media']"));
-addmediabutton.click();
+ driver.findElement(By.xpath("//span/span/strong[text()='Connections only']")).click();
+
+ driver.findElement(By.xpath("//button/span[text()='Done']")).click();
+
+//WebElement addmediabutton= driver.findElement(By.xpath("//span/button[@aria-label='Add media']"));
+//addmediabutton.click();
 
 //driver.findElement(By.xpath("span/button[@aria-label='Add media']").sendKeys("photograph.jpg");
+//uploading image
+//WebElement upload_file = driver.findElement(By.xpath("//input[@id='file_up']"));
+
+WebElement upload_file =driver.findElement(By.xpath("//span/button[@aria-label='Add media']"));
+upload_file.sendKeys("C:/Users/local admin/Downloads/declarationimage.jpg");
 
 
+
+driver.findElement(By.xpath("//button/span[text()='Next']")).click();
 
 
 //h2/button[@type='button']
 //span/button[@aria-label='Add media']
 //span[text()='Next']
 //span[text()='Post']
+driver.close();
 
         System.out.println("end Test case: LinkedLnpostcenario");
     }

@@ -23,7 +23,7 @@ public class App {
 
      LinkedlnPost lp = new LinkedlnPost();
      
-
+   lp.LinkedLnpostcenario();
         //END Tests
 
 

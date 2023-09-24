@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../Users/local admin/git/selenium_starter/selenium_starter"
+		},
+		{
+			"name": "Selenium_practice",
+			"path": "../../Users/local admin/VScode/Selenium_practice"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
