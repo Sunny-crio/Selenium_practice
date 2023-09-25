@@ -46,19 +46,23 @@ String  movieno=noofmovies.getText();
 System.out.println(movieno.substring(0,3));
 //Int no= Integer.parseInt(movieno);
 //oldest movie on the list
+
+Thread.sleep(3000);
 s.selectByVisibleText("Release date");
 
 WebElement oldestmovie= driver.findElement(By.xpath("(//a//h3)[250]"));
 System.out.println(oldestmovie.getText());
 
 Thread.sleep(2000);
+
+WebElement movetotop = driver.findElement(By.xpath("//button[@aria-label='Back to top']"));
+movetotop.click();
 // most recent movie on the list
 WebElement recentmovie= driver.findElement(By.xpath("(//a//h3)[1]"));
 System.out.println(recentmovie.getText());
 
 //movie has the most user ratings
-WebElement movetotop = driver.findElement(By.xpath("//button[@aria-label='Back to top']"));
-movetotop.click();
+
 //button[@aria-label='Back to top'].click()
 
 s.selectByVisibleText("Number of ratings");

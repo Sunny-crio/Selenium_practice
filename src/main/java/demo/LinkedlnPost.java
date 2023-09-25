@@ -1,5 +1,10 @@
 package demo;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -41,7 +46,7 @@ public class LinkedlnPost {
     }
 
     
-    public  void LinkedLnpostcenario(){
+    public  void LinkedLnpostcenario() throws Exception{
         System.out.println("Start Test case: LinkedLnpostcenario");
       driver.get("https://www.linkedin.com/");
       driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -78,19 +83,43 @@ headerbutton.click();
 //uploading image
 //WebElement upload_file = driver.findElement(By.xpath("//input[@id='file_up']"));
 
-WebElement upload_file =driver.findElement(By.xpath("//span/button[@aria-label='Add media']"));
-upload_file.sendKeys("/Users/local admin/Downloads/declarationimage.jpg");
+
+//WebElement upload_file =driver.findElement(By.xpath("//span/button[@aria-label='Add media']"));
+//upload_file.sendKeys("/Users/local admin/Downloads/declarationimage.jpg");
 
 
 
 
 
-driver.findElement(By.xpath("//button/span[text()='Next']")).click();
+
+    Robot robot = new Robot();
+
+    // Simulate pressing the "Tab" key to focus on the file input field
+    robot.keyPress(KeyEvent.VK_TAB);
+    robot.keyRelease(KeyEvent.VK_TAB);
+
+    // Type the file path
+    String filePath = "\"C:\\Users\\local admin\\Downloads\\declarationimage.jpg\""; // Replace with your file path
+    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    StringSelection stringSelection = new StringSelection(filePath);
+    clipboard.setContents(stringSelection, null);
+    robot.keyPress(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_V);
+    robot.keyRelease(KeyEvent.VK_CONTROL);
+
+    // Simulate pressing the "Enter" key to confirm the file upload
+    robot.keyPress(KeyEvent.VK_ENTER);
+    robot.keyRelease(KeyEvent.VK_ENTER);
+
+//driver.findElement(By.xpath("//button/span[text()='Next']")).click();
 
 
-//h2/button[@type='button']
-//span/button[@aria-label='Add media']
-//span[text()='Next']
+
+
+
+
+
 //span[text()='Post']
 driver.close();
 
