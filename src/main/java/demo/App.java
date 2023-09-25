@@ -21,12 +21,16 @@ public class App {
       //hyperlinkscount linkscount= new hyperlinkscount();
      // linkscount.hyperlinkscountTest();
 
-     LinkedlnPost lp = new LinkedlnPost();
+     //LinkedlnPost lp = new LinkedlnPost();
      
-   lp.LinkedLnpostcenario();
-        //END Tests
+  // lp.LinkedLnpostcenario();
+        
+  // ImageURLBMS imageurl= new ImageURLBMS();
+   //imageurl.ImageURLBMSTest();
 
-
+   Imdbratings ir = new Imdbratings();
+   ir.ImdbratingsTest();
+   //END Tests
       //tests.endTest(); // End your test by clearning connections and closing browser
     }
 

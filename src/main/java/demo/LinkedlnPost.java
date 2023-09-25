@@ -79,7 +79,9 @@ headerbutton.click();
 //WebElement upload_file = driver.findElement(By.xpath("//input[@id='file_up']"));
 
 WebElement upload_file =driver.findElement(By.xpath("//span/button[@aria-label='Add media']"));
-upload_file.sendKeys("C:/Users/local admin/Downloads/declarationimage.jpg");
+upload_file.sendKeys("/Users/local admin/Downloads/declarationimage.jpg");
+
+
 
 
 
